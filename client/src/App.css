@@ -1,0 +1,281 @@
+table,
+th,
+td {
+  border-bottom: 1px solid rgb(255, 255, 255);
+  border-collapse: collapse;
+
+}
+
+table {
+  width: 100%;
+}
+
+
+
+.modal {
+  z-index: 10;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 500px;
+  width: 500px;
+  position: relative;
+  border-radius: 50px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+  border: 1px solid rgb(255, 254, 254);
+  background-color: rgba(3, 2, 2, 0.253);
+  backdrop-filter: blur(7px);
+  overflow: hidden;
+}
+
+.mfooter {
+  position: absolute;
+  bottom: 25px;
+  right: 20px;
+}
+
+
+body {
+  background-image: url('../src/assets/bg1.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 100%;
+  color: white;
+
+}
+
+.wrapper {
+  display: flex;
+  justify-content: center;
+
+  align-items: center;
+}
+
+.glass {
+  background-color: rgba(230, 230, 230, 0.256);
+  border-radius: 30px;
+  display: flex;
+  position: relative;
+  justify-content: center;
+  align-items: center;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  width: 80%;
+  padding: 60px;
+  height: 80vh;
+  backdrop-filter: blur(7px);
+}
+
+input {
+  border: none;
+  border-bottom: 1px solid rgb(250, 250, 250);
+box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
+  background-color: transparent;
+}
+
+.table-scroll {
+  overflow-x: scroll;
+  scrollbar-width: none;
+}
+
+.small_logo>img {
+  width: 50%;
+}
+
+input:focus,
+select:focus,
+textarea:focus,
+button:focus {
+  outline: none;
+}
+
+.radio_flex {
+  display: flex;
+}
+
+.left_side {
+  padding: 50px;
+  width: 100%;
+  text-align: center;
+
+}
+
+.right_side {
+  padding: 50px;
+  text-align: center;
+  width: 100%;
+}
+
+select {
+  background-color: transparent;
+  color: white;
+}
+
+option {
+  background-color: #0d69ba91;
+}
+
+.radio {
+  width: 10%;
+}
+
+.form-control,
+.control {
+  display: block;
+
+  margin: 10px;
+  padding: .375rem .75rem;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #ffffff;
+  background-clip: padding-box;
+  border: 1px solid #e3e3e3;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border-radius: .25rem;
+  transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+}
+
+::placeholder {
+  color: white;
+}
+
+@media screen and (max-width: 750px) {
+  .form-control {
+    width: 85%;
+  }
+
+  .left_side {
+    display: none;
+    padding: 5px;
+  }
+
+  .glass {
+    padding: 50px 18px;
+    display: block;
+    height: 100vh;
+  }
+
+  .right_side {
+    padding: 10px;
+    width: 80%;
+  }
+
+  .control {
+    width: 100%;
+  }
+
+  .small_logo {
+    display: block;
+  }
+
+  .viewpage {
+    display: none;
+  }
+
+  .smalview {
+    display: block;
+  }
+}
+
+@media screen and (min-width: 750px) {
+  .form-control {
+    width: 90%;
+  }
+
+
+
+  .control {
+    width: 106%;
+  }
+
+  .smalview {
+    display: none;
+  }
+}
+
+button {
+  background-color: white;
+  width: fit-content;
+  font-size: medium;
+  padding: .475rem 1.1rem;
+
+  font-weight: 700;
+  color: #d905ae;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #d905afbb;
+  color: #fff;
+  border: 1px solid white !important;
+}
+
+input[type='radio'] {
+  accent-color: #d905ae;
+}
+
+img {
+  mix-blend-mode: color-burn;
+}
+
+.small_logo>h1 {
+  /* border-bottom: 1px solid white; */
+
+  line-height: 2;
+}
+
+.mhead {
+  text-align: center;
+  margin: 20px 30px;
+}
+
+.page {
+  color: #d905ae;
+  text-decoration: none;
+}
+
+.page:hover {
+  color: white;
+}
+
+.viewpage {
+  width: fit-content;
+  block-size: fit-content;
+  position: absolute;
+  bottom: -30px;
+  right: 60px;
+}
+
+table {
+  border: 1px solid white;
+  width: 100%;
+  border-radius: 30px;
+}
+
+th,
+td {
+  padding: 8px;
+
+}
+
+tr {
+  border-bottom: 1px solid white;
+}
+
+input[type="date"]:before {
+  content: attr(placeholder) !important;
+  color: #aaa;
+  margin-right: 0.5em;
+}
+
+input[type="date"]:focus:before,
+input[type="date"]:valid:before {
+  content: "";
+}
