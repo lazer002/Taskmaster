@@ -11,6 +11,8 @@ router.get('/getdata', async (req, res) => {
   try {
 
     const data = await Taskschrema.find({})
+    console.log(data,'data');
+    
     res.status(200).json(data)
 
   } catch (error) {
@@ -25,6 +27,8 @@ router.get('/getdata', async (req, res) => {
 router.post('/addtask', async (req, res) => {
 
   try {
+    console.log(req.body);
+    
     const { Task, Discription, Taskdate } = req.body
 
     const data = new Taskschrema({

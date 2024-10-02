@@ -15,100 +15,91 @@ function Signup() {
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
   const [user, setUser] = useState({
-
     Task: '', Discription: '', Taskdate: ''
-  })
-
-
-  {/* ###################  set state of taks  ################### */ }
-
-
+  });
+  
+  // ###################  set state of task  ###################
+  
   const handleinp = (e) => {
-    let { name, value } = e.target
-    setUser({ ...user, [name]: value })
-  }
-
-
+    const { name, value } = e.target;
+    setUser(prevState => ({ ...prevState, [name]: value }));
+  };
+  
+  // ###################  set state for edit  ###################
+  
   const handledit = (e) => {
-
-    let { name, value } = e.target
-    editSet({ ...edit, [name]: value })
-  }
-
-  {/* ###################  post taks ################### */ }
-
+    const { name, value } = e.target;
+    editSet(prevState => ({ ...prevState, [name]: value }));
+  };
+  
+  // ###################  post task ###################
+  
   const postdata = async (e) => {
     e.preventDefault();
     try {
       await axios.post('/addtask', user);
-      fetchData();
+      fetchData();  // Refresh data after posting
     } catch (error) {
       console.error('Error posting data:', error);
     }
   };
-
-  {/* ################### data show ################### */ }
-
-
+  
+  // ###################  fetch data ###################
+  
   const fetchData = async () => {
     try {
       const response = await axios.get('/getdata');
+      console.log(response.data, 'response.data');
       setData(response.data);
     } catch (error) {
       console.error('Error fetching data:', error);
     }
   };
-
+  
   useEffect(() => {
-    fetchData()
-  }, [data]);
-
-
-
-
-
-
-  {/* ###################  delete task ################### */ }
-
+    fetchData();
+  }, []);  // Only fetch data once on component mount
+  
+  // ###################  delete task ###################
+  
   const Deletetask = async (taskid) => {
-
     try {
-      const res = await axios.post('/deletetask', { taskid });
-
+      await axios.post('/deletetask', { taskid });
+      fetchData();  // Refresh data after deleting
     } catch (error) {
-      console.error('Error posting data:', error);
+      console.error('Error deleting task:', error);
     }
   };
-
-
-  {/* ###################  open modal with data ################### */ }
-
-
+  
+  // ###################  open modal with data ###################
+  
   const Edittask = async (taskid) => {
-
     try {
-      handleShow()
+      handleShow();
       const res = await axios.post('/edittask', { taskid });
-      await editSet(res.data[0])
+      editSet({
+        edit_Task: res.data[0].Task,
+        edit_Discription: res.data[0].Discription,
+        edit_Taskdate: res.data[0].Taskdate
+      });
     } catch (error) {
-      console.error('Error posting data:', error);
+      console.error('Error fetching task for edit:', error);
     }
   };
-
-
-  {/* ###################  edit post ################### */ }
-
-
+  
+  // ###################  post edit ###################
+  
   const postedit = async (e) => {
     e.preventDefault();
     try {
-
       await axios.post('/postedit', edit);
-      fetchData();
+      fetchData();  // Refresh data after editing
+      handleClose();  // Close modal after successful edit
     } catch (error) {
-      console.error('Error posting data:', error);
+      console.error('Error posting edited data:', error);
     }
   };
+  
 
   return (
 <>
